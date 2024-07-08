@@ -41,13 +41,13 @@ public class SimulationConfiguration {
    * The average mining power of each node. Mining power corresponds to Hash Rate in Bitcoin, and is
    * the number of mining (hash calculation) executed per millisecond.
    */
-  public static final int AVERAGE_MINING_POWER = 400000;
+  public static final long AVERAGE_MINING_POWER = 400000;
 
   /**
    * The mining power of each node is determined randomly according to the normal distribution whose
    * average is AVERAGE_MINING_POWER and standard deviation is STDEV_OF_MINING_POWER.
    */
-  public static final int STDEV_OF_MINING_POWER = 100000;
+  public static final long STDEV_OF_MINING_POWER = 100000;
 
   /** The constant AVERAGE_COINS. */
   // TODO

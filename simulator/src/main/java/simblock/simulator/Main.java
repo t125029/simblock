@@ -299,10 +299,10 @@ public class Main {
    *
    * @return the number of hash calculations executed per millisecond.
    */
-  public static int genMiningPower() {
+  public static long genMiningPower() {
     double r = random.nextGaussian();
 
-    return Math.max((int) (r * STDEV_OF_MINING_POWER + AVERAGE_MINING_POWER), 1);
+    return Math.max((long) (r * STDEV_OF_MINING_POWER + AVERAGE_MINING_POWER), 1);
   }
 
   /**
@@ -311,13 +311,13 @@ public class Main {
    * @return the node that will mint the genesis block
    */
   public static Node getGenesisMinter() {
-    int totalMiningPower = 0;
+    long totalMiningPower = 0;
     for (Node node : getSimulatedNodes()) {
       totalMiningPower += node.getMiningPower();
     }
 
-    int randomValue = random.nextInt(totalMiningPower);
-    int cumulativeMiningPower = 0;
+    long randomValue = (long) (random.nextDouble() * totalMiningPower);
+    long cumulativeMiningPower = 0;
 
     for (Node node : getSimulatedNodes()) {
       cumulativeMiningPower += node.getMiningPower();
